@@ -1,0 +1,27 @@
+{
+  "routes": [
+    {
+      "route": "/projects/*",
+      "headers": {
+        "cache-control": "must-revalidate, max-age=3600"
+      }
+    },
+    {
+      "route": "/blog/*",
+      "headers": {
+        "cache-control": "must-revalidate, max-age=3600"
+      }
+    },
+    {
+      "route": "/assets/*",
+      "headers": {
+        "cache-control": "must-revalidate, max-age=86400"
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*"]
+  }
+}
+

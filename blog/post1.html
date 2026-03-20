@@ -1,0 +1,110 @@
+<!-- blog/post1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Database Cloud 361 to Azure Cosmos DB | Hugo du Preez</title>
+    <meta name="description" content="How my Belgium Campus database module translated into enterprise NoSQL solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="blog-post">
+    <div class="bg-pattern"></div>
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-name">Hugo du Preez</span>
+            <span class="nav-title">Cloud Solutions Architect</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" type="button" aria-label="Switch to light mode" aria-pressed="false">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta">Get In Touch</a></li>
+        </ul>
+    </nav>
+    <header class="blog-header">
+        <div class="blog-header-content">
+            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+            <h1>From Database Cloud 361 to Azure Cosmos DB</h1>
+            <div class="blog-meta">
+                <span>📅 March 15, 2024</span>
+                <span>⏱️ 8 min read</span>
+                <span>🏷️ Azure, Cloud Architecture</span>
+            </div>
+        </div>
+    </header>
+    <article class="blog-content">
+        <p>When I first sat in the Database Cloud 361 module at Belgium Campus, I never imagined I'd be migrating millions of records to Azure Cosmos DB just a year later. This is the story of how classroom theory translated into enterprise reality.</p>
+        <h2>The Classroom Foundation</h2>
+        <p>Belgium Campus's Database Cloud 361 module gave us a solid foundation in:</p>
+        <ul>
+            <li>Relational database design and normalization</li>
+            <li>NoSQL concepts and document modeling</li>
+            <li>Cloud-native database services</li>
+            <li>Data migration strategies</li>
+        </ul>
+        <h2>The Real-World Challenge</h2>
+        <p>My first enterprise project involved migrating a legacy MongoDB database to Azure Cosmos DB. The challenge? 1.2 million customer records with complex nested documents, real-time sync requirements, and zero downtime tolerance.</p>
+        <h2>Architecture Decisions</h2>
+        <p>Based on what I learned in Cloud 361, I made several key decisions:</p>
+        <ul>
+            <li><strong>Partitioning Strategy:</strong> Used customer region as the partition key for optimal distribution</li>
+            <li><strong>Consistency Level:</strong> Chose Session consistency for the sweet spot between performance and consistency</li>
+            <li><strong>Migration Approach:</strong> Implemented the Data Migration Tool with custom transformation scripts</li>
+        </ul>
+        <h2>The Migration Process</h2>
+        <pre><code># Sample migration script structure
+source: mongodb://source-db
+sink: cosmosdb://target-db
+transformations:
+  - normalize_dates
+  - flatten_nested_addresses
+  - encrypt_pii_fields</code></pre>
+        <h2>Lessons Learned</h2>
+        <p>What the textbook didn't tell me:</p>
+        <ul>
+            <li>Request unit (RU) estimation is more art than science - start high and tune down</li>
+            <li>Change Feed is your best friend for real-time sync scenarios</li>
+            <li>Always test with production data volumes, not just sample datasets</li>
+            <li>Cosmos DB's built-in analytics with Synapse Link saves separate ETL pipelines</li>
+        </ul>
+        <h2>Results</h2>
+        <p>The migration completed with:</p>
+        <ul>
+            <li>Zero downtime during cutover</li>
+            <li>45% reduction in query latency</li>
+            <li>60% cost savings vs. previous MongoDB Atlas deployment</li>
+            <li>99.99% availability with multi-region writes</li>
+        </ul>
+        <h2>From Classroom to Cloud</h2>
+        <p>The theories from Belgium Campus provided the foundation, but enterprise architecture requires understanding trade-offs. Every decision in that Cloud 361 module - from indexing strategies to consistency models - became relevant in ways I couldn't have anticipated.</p>
+        <p>For current students: pay attention to the migration strategies section. You'll use it sooner than you think.</p>
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border);">
+        <p style="text-align: center; color: var(--text-muted);">Thanks for reading! Want to discuss this article?</p>
+        <div style="text-align: center; margin-top: 1rem;">
+            <a href="../index.html#contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </article>
+
+    <!-- Bottom Back Button -->
+    <div class="bottom-back-wrap">
+        <a href="../index.html#blog" class="back-link bottom-back-link">← Back to Blog</a>
+    </div>
+
+    <footer>
+        <div class="footer-brand">Hugo du Preez</div>
+        <p>Cloud Solutions Architect • Belgium Campus Graduate • Azure & AWS Certified</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">© <span class="current-year">2024</span> Built with HTML/CSS • Hosted on Azure Static Web Apps</p>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!-- blog/post2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terraform vs Bicep: A Cloud Architect's Decision Guide | Hugo du Preez</title>
+    <meta name="description" content="After 6 enterprise projects, here's my framework for choosing between HashiCorp Terraform and Microsoft's native Bicep.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="blog-post">
+    <div class="bg-pattern"></div>
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-name">Hugo du Preez</span>
+            <span class="nav-title">Cloud Solutions Architect</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" type="button" aria-label="Switch to light mode" aria-pressed="false">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta">Get In Touch</a></li>
+        </ul>
+    </nav>
+    <header class="blog-header">
+        <div class="blog-header-content">
+            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+            <h1>Terraform vs Bicep: A Cloud Architect's Decision Guide</h1>
+            <div class="blog-meta">
+                <span>📅 February 28, 2024</span>
+                <span>⏱️ 6 min read</span>
+                <span>🏷️ IaC, Azure, DevOps</span>
+            </div>
+        </div>
+    </header>
+    <article class="blog-content">
+        <p>After deploying 6 enterprise projects on Azure, I've used both HashiCorp Terraform and Microsoft's native Bicep extensively. Here's my decision framework for choosing between them.</p>
+        <h2>The Contenders</h2>
+        <p><strong>Terraform</strong> is the industry standard, cloud-agnostic IaC tool. <strong>Bicep</strong> is Microsoft's domain-specific language for Azure, compiling to ARM templates.</p>
+        <h2>When I Choose Bicep</h2>
+        <p>For pure Azure environments, Bicep has compelling advantages:</p>
+        <ul>
+            <li><strong>Day-zero support:</strong> New Azure services are available in Bicep immediately</li>
+            <li><strong>Azure-native:</strong> No state files to manage - everything lives in Azure</li>
+            <li><strong>Module registry:</strong> Public registry of verified modules</li>
+            <li><strong>VS Code integration:</strong> Superior IntelliSense and validation</li>
+        </ul>
+        <h2>When I Choose Terraform</h2>
+        <p>Despite being Azure-focused, I still reach for Terraform when:</p>
+        <ul>
+            <li><strong>Multi-cloud:</strong> Any AWS or GCP resources in the architecture</li>
+            <li><strong>Complex state management:</strong> Need granular control over state files</li>
+            <li><strong>Existing expertise:</strong> Team already knows HCL</li>
+            <li><strong>Advanced tooling:</strong> Terragrunt, Atlantis, or custom workflows</li>
+        </ul>
+        <h2>Code Comparison</h2>
+        <p>Here's the same storage account in both:</p>
+        <h3>Bicep</h3>
+        <pre><code>resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+  name: 'mystorageaccount'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}</code></pre>
+        <h3>Terraform</h3>
+        <pre><code>resource "azurerm_storage_account" "main" {
+  name                     = "mystorageaccount"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  access_tier              = "Hot"
+}</code></pre>
+        <h2>My Recommendation</h2>
+        <p>For new Azure-only projects: <strong>Start with Bicep</strong>. The learning curve is gentler, and you'll be writing production-ready code faster. For multi-cloud or complex enterprise environments, <strong>Terraform remains king</strong>.</p>
+        <p>Belgium Campus students: Learn both. Cloud 361 introduces ARM templates - use that as your foundation to understand Bicep, then expand to Terraform for broader marketability.</p>
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border);">
+        <p style="text-align: center; color: var(--text-muted);">Thanks for reading! Want to discuss this article?</p>
+        <div style="text-align: center; margin-top: 1rem;">
+            <a href="../index.html#contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </article>
+
+    <!-- Bottom Back Button -->
+    <div class="bottom-back-wrap">
+        <a href="../index.html#blog" class="back-link bottom-back-link">← Back to Blog</a>
+    </div>
+
+    <footer>
+        <div class="footer-brand">Hugo du Preez</div>
+        <p>Cloud Solutions Architect • Belgium Campus Graduate • Azure & AWS Certified</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">© <span class="current-year">2024</span> Built with HTML/CSS • Hosted on Azure Static Web Apps</p>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

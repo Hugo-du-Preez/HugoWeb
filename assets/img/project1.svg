@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0078D4"/>
+      <stop offset="1" stop-color="#40E0D0"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0.08)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.25" fill="#ffffff">
+    <circle cx="1320" cy="160" r="120"/>
+    <circle cx="260" cy="720" r="180"/>
+    <circle cx="1180" cy="760" r="70"/>
+  </g>
+  <g transform="translate(120,140)">
+    <rect x="0" y="0" width="1360" height="620" rx="28" fill="url(#glass)" stroke="rgba(255,255,255,0.35)"/>
+    <text x="72" y="140" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="54" font-weight="800" fill="#ffffff">
+      MultiRegion Azure ECommerce
+    </text>
+    <text x="72" y="206" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="500" fill="rgba(255,255,255,0.9)">
+      Activeactive " AKS " Cosmos DB " Traffic Manager
+    </text>
+    <g transform="translate(72,290)">
+      <rect width="360" height="140" rx="18" fill="rgba(15,23,42,0.18)" stroke="rgba(255,255,255,0.22)"/>
+      <text x="26" y="58" font-family="JetBrains Mono,Consolas,monospace" font-size="20" font-weight="600" fill="rgba(255,255,255,0.92)">
+        SLA: 99.99%
+      </text>
+      <text x="26" y="96" font-family="JetBrains Mono,Consolas,monospace" font-size="20" font-weight="600" fill="rgba(255,255,255,0.92)">
+        Regions: 3
+      </text>
+    </g>
+    <g transform="translate(460,290)">
+      <rect width="420" height="140" rx="18" fill="rgba(15,23,42,0.18)" stroke="rgba(255,255,255,0.22)"/>
+      <text x="26" y="58" font-family="JetBrains Mono,Consolas,monospace" font-size="20" font-weight="600" fill="rgba(255,255,255,0.92)">
+        Stack: AKS " Front Door
+      </text>
+      <text x="26" y="96" font-family="JetBrains Mono,Consolas,monospace" font-size="20" font-weight="600" fill="rgba(255,255,255,0.92)">
+        DB: Cosmos (multiwrite)
+      </text>
+    </g>
+  </g>
+</svg>
