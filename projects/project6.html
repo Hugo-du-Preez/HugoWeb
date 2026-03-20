@@ -7,6 +7,7 @@
     <meta name="description" content="Secure site-to-site VPN between AWS VPC and Azure VNet with cross-cloud load balancing and unified monitoring.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -58,10 +59,13 @@
             <div class="main-content">
                 <div class="video-section">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" 
-                                title="Project Walkthrough" 
-                                allowfullscreen>
-                        </iframe>
+                                <div class="youtube-click-to-load" data-youtube-id="YOUR_VIDEO_ID_6" role="button" tabindex="0" aria-label="Click to play walkthrough video" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:1.5rem; cursor:pointer; color: rgba(255, 255, 255, 0.92); text-shadow: 0 10px 30px rgba(0,0,0,0.45);">
+                                    <div>
+                                        <div style="font-size:2rem; margin-bottom:0.75rem;">▶</div>
+                                        <div style="font-weight:800; margin-bottom:0.25rem;">Click to play walkthrough video</div>
+                                        <div style="color:#94A3B8; font-size:0.95rem;">Add your YouTube video ID to enable</div>
+                                    </div>
+                                </div>
                     </div>
                 </div>
 

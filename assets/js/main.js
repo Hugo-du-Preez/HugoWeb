@@ -381,6 +381,68 @@ function toEmbedUrl(videoId) {
   return url.toString();
 }
 
+// ===== CLICK-TO-LOAD YOUTUBE (no iframe requests until user click) =====
+function normalizeYouTubeVideoId(input) {
+  const raw = String(input ?? '').trim();
+  if (!raw || raw.includes('YOUR_VIDEO_ID')) return null;
+
+  // Accept either a plain video id or a full youtube URL.
+  // Examples:
+  // - dQw4w9WgXcQ
+  // - https://youtu.be/dQw4w9WgXcQ
+  // - https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  // - https://www.youtube.com/embed/dQw4w9WgXcQ
+  const patterns = [
+    /youtu\.be\/([^?&/]+)/i,
+    /youtube\.com\/watch\?v=([^?&/]+)/i,
+    /youtube\.com\/watch\?.*&v=([^?&/]+)/i,
+    /youtube\.com\/embed\/([^?&/]+)/i,
+    /youtube\.com\/shorts\/([^?&/]+)/i,
+  ];
+
+  for (const re of patterns) {
+    const match = raw.match(re);
+    if (match?.[1]) return match[1];
+  }
+
+  // If it looks like an ID already, accept it.
+  if (/^[a-zA-Z0-9_-]{6,}$/.test(raw) && !raw.includes('/')) return raw;
+
+  return null;
+}
+
+document.querySelectorAll('.youtube-click-to-load').forEach((wrapper) => {
+  wrapper.addEventListener('click', () => {
+    const videoId = normalizeYouTubeVideoId(wrapper.getAttribute('data-youtube-id'));
+    if (!videoId) return;
+    if (wrapper.dataset.loaded === 'true') return;
+
+    const container = wrapper.closest('.video-container');
+    if (!container) return;
+
+    wrapper.dataset.loaded = 'true';
+    container.innerHTML = '';
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `${toEmbedUrl(videoId)}&autoplay=1`;
+    iframe.title = 'Project Walkthrough';
+    iframe.loading = 'eager';
+    iframe.setAttribute(
+      'allow',
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    );
+    iframe.setAttribute('allowfullscreen', '');
+
+    container.appendChild(iframe);
+  });
+
+  wrapper.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    wrapper.click();
+  });
+});
+
 document.querySelectorAll('iframe').forEach((frame) => {
   const src = frame.getAttribute('src') || '';
   if (!src) return;
