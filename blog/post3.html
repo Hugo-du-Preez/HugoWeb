@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passing AZ-305: My Study Strategy | Hugo du Preez</title>
-    <meta name="description" content="How I passed the Azure Solutions Architect Expert exam within 3 months of graduating from Belgium Campus.">
+    <title>Database Administration 361: Policies, SQL Server & Azure SQL Overview | Hugo du Preez</title>
+    <meta name="description" content="A summary of database management policies, SQL Server 2022 capabilities, and separation of duties when moving to Azure SQL Database.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <nav>
         <div class="nav-brand">
             <span class="nav-name">Hugo du Preez</span>
-            <span class="nav-title">Cloud Solutions Architect</span>
+            <span class="nav-title">Software Developer</span>
         </div>
 
         <!-- Theme Toggle Button -->
@@ -35,59 +35,60 @@
     <header class="blog-header">
         <div class="blog-header-content">
             <a href="../index.html#blog" class="back-link">← Back to Blog</a>
-            <h1>Passing AZ-305: My Study Strategy</h1>
+            <h1>Database Administration 361: Key Concepts Summary</h1>
             <div class="blog-meta">
-                <span>📅 January 20, 2024</span>
-                <span>⏱️ 7 min read</span>
-                <span>🏷️ Certification, Azure, Career</span>
+                <span>📅 April 2026</span>
+                <span>⏱️ 5 min read</span>
+                <span>🏷️ Database Administration, SQL Server, Azure</span>
             </div>
         </div>
     </header>
     <article class="blog-content">
-        <p>I passed the Azure Solutions Architect Expert (AZ-305) exam three months after graduating from Belgium Campus. Here's exactly how I prepared, what worked, and what I'd do differently.</p>
-        <h2>The Mindset Shift</h2>
-        <p>AZ-104 (Administrator) is about <em>how</em> to do things. AZ-305 is about <em>why</em> and <em>when</em>. This is the crucial difference:</p>
+        <p>This post summarizes key concepts from Database Administration 361, focusing on data management policies, SQL Server 2022 capabilities, and the responsibilities shared between Microsoft Azure and a Database Administrator (DBA) in Azure SQL Database environments.</p>
+
+        <h2>Data Management Policies</h2>
+        <p>Organisations rely on several policies to manage, protect, and maintain their data effectively.</p>
+
         <ul>
-            <li>AZ-104: "Create a VM with these specs"</li>
-            <li>AZ-305: "Design a solution that handles 10x traffic spikes with minimal cost"</li>
+            <li><strong>Data Usage Policy:</strong> Defines how data should be accessed and used responsibly by authorised users to ensure compliance and integrity.</li>
+            <li><strong>Data Security Policy:</strong> Focuses on protecting data from unauthorised access through authentication, encryption, and monitoring controls.</li>
+            <li><strong>Backup and Recovery Policy:</strong> Ensures regular backups are created and data can be restored in case of accidental loss or system failure.</li>
+            <li><strong>Disaster Recovery Policy:</strong> Covers restoring entire systems, including infrastructure, applications, and data, after major disruptions.</li>
+            <li><strong>Change Management Policy:</strong> Governs how system changes are requested, tested, approved, and implemented to avoid instability.</li>
         </ul>
-        <h2>My 3-Month Study Plan</h2>
-        <p><strong>Month 1:</strong> Foundation</p>
+
+        <p>While each policy has a different focus, they all work together to ensure data availability, security, compliance, and reliability within an organisation.</p>
+
+        <h2>SQL Server 2022 Capabilities</h2>
+        <p>SQL Server 2022 provides a wide range of features that support administrators and users in managing modern database systems effectively.</p>
+
         <ul>
-            <li>Completed Microsoft Learn path for AZ-305</li>
-            <li>Built 3 mini-projects implementing key services</li>
-            <li>Created architecture diagrams for common scenarios</li>
+            <li><strong>Security and Authentication:</strong> Supports encryption (Always Encrypted, TLS), role-based access control, and multiple authentication methods including Azure AD integration.</li>
+            <li><strong>High Availability and Disaster Recovery:</strong> Features such as Always On Availability Groups, Failover Cluster Instances, and log shipping ensure system uptime and data resilience.</li>
+            <li><strong>Performance Monitoring and Tuning:</strong> Tools like DMVs, Query Store, and Extended Events help monitor workloads and optimise query performance.</li>
+            <li><strong>Optimised Data Storage:</strong> Supports data virtualization, cloud integration, and improved storage management for better efficiency and scalability.</li>
         </ul>
-        <p><strong>Month 2:</strong> Deep Dive</p>
+
+        <p>These features enable DBAs to maintain performance, ensure security, and support scalable and reliable database systems.</p>
+
+        <h2>Separation of Duties in Azure SQL Database</h2>
+        <p>When moving to Azure SQL Database, responsibilities are shared between Microsoft and the organisation’s DBA under the shared responsibility model.</p>
+
         <ul>
-            <li>Whizlabs practice tests (scored 70%, then 85%, then 95%)</li>
-            <li>Case study analysis - read 50+ real-world Azure architectures</li>
-            <li>Belgium Campus Cloud 361 notes review</li>
+            <li><strong>Infrastructure & Maintenance:</strong> Microsoft manages hardware, networking, patching, and platform availability. The DBA manages logical database objects and configurations.</li>
+            <li><strong>Security:</strong> Microsoft secures the infrastructure, while the DBA manages access control, authentication, and data-level security.</li>
+            <li><strong>Backup & Recovery:</strong> Microsoft provides automated backups, while the DBA defines retention policies and performs restore testing.</li>
+            <li><strong>Monitoring & Performance:</strong> Microsoft provides monitoring tools, while the DBA analyses performance, tunes queries, and optimises workloads.</li>
+            <li><strong>Configuration & Development:</strong> The DBA handles database design, schema creation, and support for application development.</li>
+            <li><strong>Disaster Recovery & High Availability:</strong> Microsoft ensures built-in availability, while the DBA configures geo-replication and disaster recovery strategies.</li>
+            <li><strong>Governance & Compliance:</strong> Microsoft maintains platform compliance, while the DBA enforces organisational policies and auditing.</li>
         </ul>
-        <p><strong>Month 3:</strong> Polish</p>
-        <ul>
-            <li>MeasureUp practice exam until consistently scoring 90%+</li>
-            <li>Focused review on weak areas (networking, security)</li>
-            <li>Exam scheduling to create urgency</li>
-        </ul>
-        <h2>Key Resources</h2>
-        <ul>
-            <li><strong>Microsoft Learn:</strong> Free, comprehensive, hands-on labs</li>
-            <li><strong>John Savill's AZ-305 course:</strong> Best explanation of trade-offs</li>
-            <li><strong>Whizlabs:</strong> Practice tests that mirror exam format</li>
-            <li><strong>Azure Architecture Center:</strong> Real patterns and anti-patterns</li>
-        </ul>
-        <h2>Exam Day Tips</h2>
-        <ul>
-            <li>Flag uncertain questions and return later</li>
-            <li>Case studies first - they set context for other questions</li>
-            <li>Look for "most cost-effective" and "minimize administrative effort" keywords</li>
-            <li>Trust your Belgium Campus foundation - Cloud 361 covers more than you think</li>
-        </ul>
-        <h2>The Result</h2>
-        <p>Scored 875/1000 on first attempt. The combination of hands-on projects (from my portfolio) and structured study was the winning formula. Theory without practice won't cut it for this exam.</p>
+
+        <h2>Conclusion</h2>
+        <p>Database Administration involves more than just managing data - it requires understanding policies, leveraging platform capabilities like SQL Server 2022, and clearly defining responsibilities when operating in cloud environments such as Azure SQL Database. Together, these elements ensure secure, reliable, and efficient database systems.</p>
+
         <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border);">
-        <p style="text-align: center; color: var(--text-muted);">Thanks for reading! Want to discuss this article?</p>
+        <p style="text-align: center; color: var(--text-muted);">Thanks for reading! Want to discuss this topic?</p>
         <div style="text-align: center; margin-top: 1rem;">
             <a href="../index.html#contact" class="btn btn-primary">Get In Touch</a>
         </div>
@@ -100,8 +101,8 @@
 
     <footer>
         <div class="footer-brand">Hugo du Preez</div>
-        <p>Cloud Solutions Architect • Belgium Campus Graduate • Azure & AWS Certified</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">© <span class="current-year">2024</span> Built with HTML/CSS • Hosted on Azure Static Web Apps</p>
+        <p>Software Developer • Belgium Campus Graduate • AZ-900 Certified</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">© <span class="current-year">2026</span> Available for opportunities August 2026</p>
     </footer>
     <script src="../assets/js/main.js"></script>
 </body>
