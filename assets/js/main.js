@@ -226,7 +226,8 @@ function ensureCtaLast() {
 function normalizeNavOrder() {
   if (!navLinks) return;
 
-  const desired = [
+const desired = [
+    { label: 'Home', hash: '#top' },
     { label: 'Projects', hash: '#projects' },
     { label: 'Skills', hash: '#skills' },
     { label: 'Certifications', hash: '#certifications' },
