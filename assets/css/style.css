@@ -1862,8 +1862,12 @@ footer p {
     }
 
     /* Each menu item */
-    .nav-links li {
+    .nav-links li:not(:last-child) {
+        border-bottom: 1px solid var(--border);
         width: 100%;
+    }
+
+    .nav-links li {
         text-align: center;
     }
 
@@ -1871,14 +1875,29 @@ footer p {
         display: block; /* ensures clickable area full width */
         width: 100%;
         font-size: 1.1rem;
-        padding: 0.5rem 0;
+        padding: 1rem 2.5rem;
         color: var(--text-primary);
         text-decoration: none;
-        transition: color 0.3s;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
 
     .nav-links a:hover {
         color: var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
     }
 
     /* Call-to-action button */
