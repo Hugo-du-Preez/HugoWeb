@@ -19,14 +19,9 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
+# CORS for chat function - MUST be exact path
 [[headers]]
-  for = "*.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-# CORS for chat function
-[[headers]]
-  for = "/.netlify/functions/*"
+  for = "/.netlify/functions/chat"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "POST, OPTIONS"
