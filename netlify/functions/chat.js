@@ -160,7 +160,7 @@ Be concise, professional, and friendly. Mention specific technologies when discu
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama3-8b-8192',
+        model: 'llama-3.1-8b-instant',
         messages: messages,
         max_tokens: 800,
         temperature: 0.7

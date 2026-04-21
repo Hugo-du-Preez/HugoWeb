@@ -234,10 +234,7 @@ function normalizeNavOrder() {
     { label: 'Education', hash: '#education' },
 { label: 'Blog', hash: '#blog' }
   ];
-  const isMobile = window.matchMedia('(max-width: 968px)').matches;
-  if (isMobile) {
-    desired.push({ label: '🤖 Ask Hugo\'s AI', onclick: 'toggleChat(); return false;', href: '#' });
-  }
+  
 
   // Ensure links exist
   desired.forEach(({ label, hash }) => ensureNavLink(label, getIndexHref(hash)));
