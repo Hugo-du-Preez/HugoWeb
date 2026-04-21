@@ -226,14 +226,18 @@ function ensureCtaLast() {
 function normalizeNavOrder() {
   if (!navLinks) return;
 
-const desired = [
+  const desired = [
     { label: 'Home', hash: '#top' },
     { label: 'Projects', hash: '#projects' },
     { label: 'Skills', hash: '#skills' },
     { label: 'Certifications', hash: '#certifications' },
     { label: 'Education', hash: '#education' },
-    { label: 'Blog', hash: '#blog' },
+{ label: 'Blog', hash: '#blog' }
   ];
+  const isMobile = window.matchMedia('(max-width: 968px)').matches;
+  if (isMobile) {
+    desired.push({ label: '🤖 Ask Hugo\'s AI', onclick: 'toggleChat(); return false;', href: '#' });
+  }
 
   // Ensure links exist
   desired.forEach(({ label, hash }) => ensureNavLink(label, getIndexHref(hash)));
@@ -461,3 +465,110 @@ document.querySelectorAll('iframe').forEach((frame) => {
 });
 
 // (intentionally no console logging)
+// ===== AI CHATBOT =====
+let chatOpen = false;
+let messageHistory = [];
+let isRateLimited = false;
+let rateLimitResetTime = 0;
+
+function toggleChat() {
+    chatOpen = !chatOpen;
+    const widget = document.getElementById('chat-widget');
+    const toggle = document.getElementById('chat-toggle');
+    widget.style.display = chatOpen ? 'flex' : 'none';
+    toggle.style.display = chatOpen ? 'none' : 'flex';
+    if (chatOpen) document.getElementById('chat-input').focus();
+}
+
+function setRateLimit(seconds) {
+    isRateLimited = true;
+    rateLimitResetTime = Date.now() + (seconds * 1000);
+    const sendBtn = document.getElementById('chat-send-btn');
+    const warning = document.getElementById('chat-rate-warning');
+    const input = document.getElementById('chat-input');
+
+    sendBtn.disabled = true;
+    warning.style.display = 'block';
+    input.placeholder = `Wait ${seconds}s before next message...`;
+
+    const countdown = setInterval(() => {
+        const remaining = Math.ceil((rateLimitResetTime - Date.now()) / 1000);
+        if (remaining <= 0) {
+            clearInterval(countdown);
+            isRateLimited = false;
+            sendBtn.disabled = false;
+            warning.style.display = 'none';
+            input.placeholder = 'Ask me anything...';
+        } else {
+            input.placeholder = `Wait ${remaining}s before next message...`;
+        }
+    }, 1000);
+}
+
+async function sendMessage() {
+    if (isRateLimited) return;
+
+    const input = document.getElementById('chat-input');
+    const messages = document.getElementById('chat-messages');
+    const text = input.value.trim();
+    if (!text) return;
+
+    // Add user message
+    messages.innerHTML += `<div class="chat-user-msg">${escapeHtml(text)}</div>`;
+    input.value = '';
+    messages.scrollTop = messages.scrollHeight;
+
+    // Add to history
+    messageHistory.push({ role: 'user', content: text });
+
+    // Show typing
+    const typingId = 'typing-' + Date.now();
+    messages.innerHTML += `<div id="${typingId}" class="chat-bot-msg chat-typing">Thinking...</div>`;
+    messages.scrollTop = messages.scrollHeight;
+
+    try {
+        const response = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                message: text,
+                history: messageHistory.slice(-6)
+            })
+        });
+
+        const data = await response.json();
+        document.getElementById(typingId).remove();
+
+        // Handle rate limiting from server
+        if (response.status === 429) {
+            const retryAfter = data.error?.match(/(\d+)\s*seconds/)?.[1] || 60;
+            setRateLimit(parseInt(retryAfter));
+            messages.innerHTML += `<div class="chat-bot-msg chat-rate-error">⚠️ ${escapeHtml(data.error || 'Rate limit exceeded. Please wait.')}</div>`;
+            return;
+        }
+
+        if (data.error) throw new Error(data.error);
+
+        // Add bot response
+        messages.innerHTML += `<div class="chat-bot-msg">${escapeHtml(data.reply)}</div>`;
+        messageHistory.push({ role: 'assistant', content: data.reply });
+
+    } catch (error) {
+        document.getElementById(typingId).remove();
+        messages.innerHTML += `<div class="chat-bot-msg chat-error">❌ Error: ${escapeHtml(error.message)}</div>`;
+    }
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Initialize chat toggle button on load
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('chat-toggle');
+    if (toggle) toggle.style.display = 'flex';
+});
