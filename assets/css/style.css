@@ -2001,10 +2001,6 @@ footer p {
     border: 1px solid var(--border);
 }
 
-.chat-intro {
-    /* Default .chat-bot-msg styles apply */
-}
-
 .chat-typing {
     color: var(--text-muted);
     font-style: italic;
@@ -2083,19 +2079,22 @@ footer p {
     bottom: 5.5rem;
     right: 24px;
     width: var(--bubble-size);
-    height: calc(var(--bubble-size) * 0.75);
-    border-radius: 50% / 60% 60% 40% 40%;
-    background: var(--gradient-1);
-    color: rgba(7, 10, 18, 0.92);
-    border: none;
+    height: var(--bubble-size);
+    border-radius: 50%;
+    background: 
+        linear-gradient(135deg, rgba(16, 131, 159, 0.3), rgba(52, 128, 220, 0.3)),
+        url('https://res.cloudinary.com/dxrak5fdv/image/upload/v1776843762/20260422_093019_0000-removebg-preview_szssr0.png ');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    font-size: 24px;
     box-shadow: var(--shadow);
     z-index: 9998;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s;
+    font-size: 0;  /* Hides the 💬 emoji text */
 }
 
 @media (max-width: 640px) {
@@ -2146,4 +2145,17 @@ footer p {
         height: 52px;
         font-size: 22px;
     }
+}
+
+.mobile-ai-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem; /* controls space between icon and text */
+}
+
+.ai-icon {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    display: block;
 }
