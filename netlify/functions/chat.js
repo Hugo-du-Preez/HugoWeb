@@ -60,12 +60,12 @@ AI Chatbot System:
 - Serverless backend using Netlify Functions (Node.js)
 - Integrated CV, GitHub, and website data as structured knowledge base
 - Custom prompt engineering enforcing strict bullet-point responses
-- Includes rate limiting and error handling for production use
+- Includes rate limiting and error handling
 
 Deployment:
 - Website hosted on Netlify
 - Source code managed via GitHub
-- CI/CD pipeline: GitHub → Netlify auto-deploy
+- CI/CD: GitHub → Netlify auto-deploy
 - Fully serverless architecture
 `,
 
@@ -154,6 +154,9 @@ exports.handler = async (event) => {
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'Missing API key' }) };
     }
 
+    // Detect first message
+    const isFirstMessage = history.length === 0;
+
     // ===================== SYSTEM PROMPT =====================
     const systemPrompt = `
 You are Hugo du Preez's AI assistant.
@@ -164,7 +167,15 @@ STRICT RULES:
 - If unknown: "Not specified in Hugo's portfolio"
 - Max 5 bullet points
 - Max 12 words per bullet
-- No paragraphs, no filler text
+- No paragraphs or filler text
+
+TONE:
+- Friendly, polite, and professional
+- Recruiter-friendly communication style
+
+FIRST MESSAGE RULE:
+- If first interaction, greet politely ("Hi! Nice to meet you 👋")
+- Only greet ONCE per conversation
 
 PROFILE: ${KNOWLEDGE_BASE.profile}
 CONTACT: ${KNOWLEDGE_BASE.contact}
@@ -185,7 +196,12 @@ AVAILABILITY: ${KNOWLEDGE_BASE.availability}
     const messages = [
       { role: 'system', content: systemPrompt },
       ...history.slice(-3),
-      { role: 'user', content: `Answer in bullet points only:\n${message}` }
+      {
+        role: 'user',
+        content: isFirstMessage
+          ? `First message: greet politely, then answer in bullet points only:\n${message}`
+          : `Answer in bullet points only:\n${message}`
+      }
     ];
 
     const response = await makeRequest(
