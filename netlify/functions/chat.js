@@ -29,7 +29,7 @@ const KNOWLEDGE_BASE = {
 
   education: `Diploma in Information Technology (Software Development), Belgium Campus (2023-2026). 16 academic distinctions.`,
 
-  certifications: `Microsoft Azure Fundamentals (AZ-900). CCNA (April 2026). ISC2 Cybersecurity (May 2026).`,
+  certifications: `Microsoft Azure Fundamentals (AZ-900). CCNA (Scheduled: 2026). ISC2 Cybersecurity (Scheduled: 2026).`,
 
   github: `
 GitHub: github.com/Hugo-du-Preez
@@ -69,7 +69,7 @@ Deployment:
 - Fully serverless architecture
 `,
 
-  availability: `Available from 1 August 2026`
+  availability: `Available from 1 July 2026 after June examinations.`
 };
 
 // ===================== HTTP REQUEST =====================

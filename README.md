@@ -147,7 +147,7 @@ Portfolio-Hugo/
 - **Diploma IT (Software Development)** - Belgium Campus iTversity (2023-2026)
 - **16 Academic Distinctions** (Programming, Databases, Cloud)
 - **AZ-900 Certified** ([Verify](https://learn.microsoft.com/api/credentials/share/en-us/HugoduPreez-7666/788DBB7B7C3B3708?sharingId=788DBB7B7C3B3708))
-- **Upcoming:** CCNA (Apr 2026) • ISC² Cybersecurity (May 2026)
+- **Upcoming:** CCNA (2026) • ISC² Cybersecurity (October 2026)
 
 ## 📞 Contact
 ```
@@ -155,7 +155,7 @@ hugo777dupreez@gmail.com
 +27 65 843 9361
 [LinkedIn](https://linkedin.com/in/hugo-du-preez/)
 [GitHub](https://github.com/Hugo-du-Preez)
-**Available August 2026** 🚀
+**Available July 2026** 🚀
 ```
 
 ---
