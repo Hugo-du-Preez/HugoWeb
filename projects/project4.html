@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .code-snippet { background:#0f1e28; color:#dce7ee; border-radius:12px; padding:1.1rem 1.3rem; overflow-x:auto; font-family:'JetBrains Mono','Consolas',monospace; font-size:0.82rem; line-height:1.6; margin:0 0 1.6rem; }
+        .code-snippet code { white-space:pre; }
+        .code-caption { margin:0 0 0.6rem; color:var(--text-secondary); }
+    </style>
 </head>
 <body class="project-detail">
     <div class="bg-pattern"></div>
@@ -89,6 +94,14 @@
                     <li>Referential-integrity, uniqueness, and business-rule checks (e.g. premium &gt; 0, claim ≤ sum assured)</li>
                     <li>A scorecard with a pass rate per rule, rebuilt cleanly each time it runs</li>
                 </ul>
+                <p class="code-caption">Each check counts the rows it looked at and the rows that fail, then writes the result to a scorecard table. For example, the referential-integrity check:</p>
+                <pre class="code-snippet"><code>-- DQ07: every policy must link to a customer that exists
+INSERT INTO dq.results (rule_id, dimension, severity, records_checked, records_failed)
+SELECT 'DQ07', 'Consistency', 'Critical',
+       COUNT(*),
+       SUM(CASE WHEN c.customer_id IS NULL THEN 1 ELSE 0 END)
+FROM dw.policies p
+LEFT JOIN dw.customers c ON c.customer_id = p.customer_id;</code></pre>
 
                 <!-- Calculation framework -->
                 <h2>🧮 Calculation Framework</h2>
@@ -98,6 +111,38 @@
                     <li>Power BI reads these views directly, so the calculation logic lives in one place instead of being repeated in DAX</li>
                     <li>Every formula documented in a change-controlled specification alongside the code</li>
                 </ul>
+                <p class="code-caption">Each metric is a SQL view. Loss ratio compares approved claims against earned premium, per product:</p>
+                <pre class="code-snippet"><code>CREATE OR ALTER VIEW dw.vw_loss_ratio AS
+WITH earned AS (
+    SELECT p.product, SUM(pr.amount) AS earned_premium
+    FROM dw.premiums pr
+    JOIN dw.policies p ON p.policy_id = pr.policy_id
+    WHERE pr.status = 'Paid'
+    GROUP BY p.product
+),
+incurred AS (
+    SELECT p.product, SUM(cl.claim_amount) AS claims_paid
+    FROM dw.claims cl
+    JOIN dw.policies p ON p.policy_id = cl.policy_id
+    WHERE cl.decision = 'Approved'
+    GROUP BY p.product
+)
+SELECT e.product, e.earned_premium, ISNULL(i.claims_paid, 0) AS claims_paid,
+       CAST(100.0 * ISNULL(i.claims_paid, 0) / NULLIF(e.earned_premium, 0)
+            AS DECIMAL(6,2)) AS loss_ratio_pct
+FROM earned e
+LEFT JOIN incurred i ON i.product = e.product;</code></pre>
+
+                <p class="code-caption">The Power BI data-quality page uses a few DAX measures over the scorecard table:</p>
+                <pre class="code-snippet"><code>Total Failed = SUM('results'[records_failed])
+
+Rules Failing = CALCULATE(COUNTROWS('results'), 'results'[records_failed] &gt; 0)
+
+Pass Rate % =
+DIVIDE(
+    SUM('results'[records_checked]) - SUM('results'[records_failed]),
+    SUM('results'[records_checked])
+)</code></pre>
 
                 <!-- Results -->
                 <h2>📈 Results</h2>
