@@ -3,17 +3,22 @@ const https = require('https');
 
 // ===================== KNOWLEDGE BASE =====================
 const KNOWLEDGE_BASE = {
-  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 16 distinctions. Microsoft AZ-900 certified. Focus: backend systems, cloud engineering, data engineering.`,
+  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 16 distinctions. Microsoft AZ-900 certified. Focus: data analytics and business intelligence, with a background in backend development and cloud.`,
 
   contact: `Email: hugo777dupreez@gmail.com | Phone: +27 65 843 9361 | LinkedIn: linkedin.com/in/hugo-du-preez | GitHub: github.com/Hugo-du-Preez | Portfolio: hugodupreez.com`,
 
-  skills: `Backend: C#, .NET, REST APIs, OOP | Data: SQL Server, T-SQL, MongoDB, Power BI | Cloud: Azure, CI/CD, DevOps | Web: Flask, HTML, CSS, Bootstrap, JavaScript | Networking: TCP/IP, routing, subnetting, DHCP, ACLs`,
+  skills: `Data & BI: Power BI, SQL Server, T-SQL, Excel, Data Quality, Data Governance | Backend: C#, .NET, Python, REST APIs, OOP | Databases: SQL Server, T-SQL, MongoDB, SQLite | Cloud & DevOps: Azure (AZ-900), Azure DevOps, CI/CD | Web: Flask, HTML, CSS, Bootstrap, JavaScript`,
 
   projects: [
     {
+      name: "Life Insurance Data Quality & Reporting Framework",
+      tech: "SQL Server, T-SQL, Power BI",
+      desc: "Automated data-quality checks, documented calculation views, and a Power BI dashboard for a life-insurance book."
+    },
+    {
       name: "Portfolio Analytics Dashboard",
       tech: "Power BI, Azure Static Web Apps, T-SQL",
-      desc: "Enterprise BI dashboard with real-time analytics and automated reporting."
+      desc: "BI dashboard with live Power BI reports and Excel integration."
     },
     {
       name: "AFCON 2025 MongoDB Platform",
@@ -34,24 +39,25 @@ const KNOWLEDGE_BASE = {
   github: `
 GitHub: github.com/Hugo-du-Preez
 Repositories:
+- Life Insurance Data Quality & Reporting Framework (SQL Server, T-SQL, Power BI)
 - Portfolio Analytics Dashboard (Power BI, Azure, T-SQL)
 - AFCON 2025 MongoDB Platform (Flask, MongoDB, REST API)
 - Student Management System (Flask, SQLite, Bootstrap)
 `,
 
   cv: `
-Career Focus: Cloud engineering, backend systems, Azure, CI/CD
-Internship: Seeking WIL from 1 August 2026
-Tools: GitHub, Visual Studio, Azure Data Studio, Cisco Packet Tracer
+Career Focus: Data analytics, business intelligence, data quality
+Seeking: Data analyst and BI roles (also open to software development and database roles)
+Tools: Power BI, Excel, GitHub, Azure DevOps, Visual Studio, Azure Data Studio
 Languages: English, Afrikaans
 Driver’s License: Code B
 `,
 
   site: `
 Website Overview:
-- Production-ready portfolio showcasing backend and cloud engineering skills
-- Highlights enterprise-level development and real-world projects
-- Designed to demonstrate full-stack + cloud deployment capability
+- Portfolio focused on data analytics and business intelligence
+- Highlights data quality, Power BI reporting, and real-world projects
+- Also shows software development and cloud experience
 `,
 
   ai_project: `
@@ -69,7 +75,7 @@ Deployment:
 - Fully serverless architecture
 `,
 
-  availability: `Available from 1 July 2026 after June examinations.`
+  availability: `Available.`
 };
 
 // ===================== HTTP REQUEST =====================
