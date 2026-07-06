@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>50TB Hybrid Cloud Migration | Hugo du Preez</title>
-    <meta name="description" content="Zero-downtime migration of 50TB on-premises SQL Server estate to Azure SQL Managed Instance using DMA and Azure DMS.">
-    
+    <title>Life Insurance Data Quality & Reporting Framework | Hugo du Preez</title>
+    <meta name="description" content="SQL Server data-quality and reporting framework for a life-insurance book: 10 automated validation rules, a documented calculation framework, and a Power BI management dashboard.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,121 +14,141 @@
 <body class="project-detail">
     <div class="bg-pattern"></div>
 
-<nav>
-    <div class="nav-brand">
-        <span class="nav-name">Hugo du Preez</span>
-        <span class="nav-title">Cloud Solutions Architect</span>
-    </div>
-    
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-name">Hugo du Preez</span>
+            <span class="nav-title">Data Analyst &amp; Developer</span>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
         <!-- Theme Toggle Button -->
         <button class="theme-toggle-btn" type="button" aria-label="Switch to light mode" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
-    
-    <ul class="nav-links">
-        <li><a href="../index.html#education">Education</a></li>
-        <li><a href="../index.html#skills">Skills</a></li>
-        <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#blog">Blog</a></li>
-        <li><a href="../index.html#contact" class="nav-cta">Get In Touch</a></li>
-    </ul>
-</nav>
 
+        <ul class="nav-links">
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta">Get In Touch</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="project-hero">
         <div class="project-hero-content">
             <a href="../index.html#projects" class="back-link">← Back to Projects</a>
-            <h1>50TB Hybrid Cloud Migration</h1>
-            <p class="subtitle">Zero-downtime database modernization</p>
+            <h1>Life Insurance Data Quality &amp; Reporting Framework</h1>
+            <p class="subtitle">A SQL Server framework for data quality, documented calculations, and Power BI reporting</p>
             <div class="project-meta">
-                <div class="meta-item"><strong>Project:</strong> 04 / 06</div>
-                <div class="meta-item"><strong>Duration:</strong> 6 months</div>
+                <div class="meta-item"><strong>Project:</strong> 01 / 04</div>
+                <div class="meta-item"><strong>Focus:</strong> Data Analysis &amp; BI</div>
                 <div class="meta-item"><strong>Status:</strong> Completed</div>
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
     <div class="project-body">
         <div class="content-grid">
+
+            <!-- Main Content -->
             <div class="main-content">
+
+                <!-- Live Power BI report -->
                 <div class="video-section">
-                    <div class="video-container">
-                                <div class="youtube-click-to-load" data-youtube-id="YOUR_VIDEO_ID_4" role="button" tabindex="0" aria-label="Click to play walkthrough video" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:1.5rem; cursor:pointer; color: rgba(255, 255, 255, 0.92); text-shadow: 0 10px 30px rgba(0,0,0,0.45);">
-                                    <div>
-                                        <div style="font-size:2rem; margin-bottom:0.75rem;">▶</div>
-                                        <div style="font-weight:800; margin-bottom:0.25rem;">Click to play walkthrough video</div>
-                                        <div style="color:#94A3B8; font-size:0.95rem;">Add your YouTube video ID to enable</div>
-                                    </div>
-                                </div>
+                    <h2>📊 Live Dashboard</h2>
+                    <div class="video-container" style="position: relative; padding-bottom: 62.25%; height: 0; overflow: hidden; border-radius: 12px; background: var(--bg-secondary);">
+                        <iframe title="Life Insurance Portfolio"
+                                src="https://app.powerbi.com/view?r=eyJrIjoiYjQ1Y2Y4NjYtMDkzYy00YWMyLWEwNWMtNWE4MmMyZGIzZWQ0IiwidCI6ImVhMWE5MDliLTY2MDAtNGEyNS04MmE1LTBjNmVkN2QwNTEzYiIsImMiOjl9"
+                                frameborder="0" allowFullScreen="true"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+                        </iframe>
                     </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        Interactive Power BI report covering the executive summary, risk &amp; profitability, and the data-quality scorecard, all built on the SQL views.
+                    </p>
                 </div>
 
+                <!-- Overview -->
                 <h2>🎯 Project Overview</h2>
-                <p>Migrated 50TB on-premises SQL Server estate to Azure SQL Managed Instance for manufacturing client. Maintained 99.9% availability during migration with zero data loss.</p>
+                <p>An end-to-end framework for a life-insurance book. It generates a realistic policy, premium, and claims dataset in T-SQL, runs a set of automated data-quality checks, defines every management metric as a documented SQL view, and feeds a Power BI dashboard. The data quality, calculation logic, and reporting all sit in one version-controlled repository.</p>
 
-                <h2>🏗️ Migration Strategy</h2>
+                <!-- Data quality engine -->
+                <h2>✅ Data Quality Engine</h2>
                 <ul>
-                    <li>DMA (Data Migration Assistant) for compatibility assessment</li>
-                    <li>Azure DMS (Database Migration Service) with transactional replication</li>
-                    <li>Hybrid connectivity via ExpressRoute with VPN fallback</li>
-                    <li>Automated testing with Database Experimentation Assistant</li>
-                    <li>Rollback procedures tested and documented</li>
+                    <li>10 validation rules across the five DAMA dimensions: Completeness, Validity, Uniqueness, Consistency, and Accuracy</li>
+                    <li>Each rule carries a severity (Critical / High / Medium) and logs records checked vs records failed</li>
+                    <li>Referential-integrity, uniqueness, and business-rule checks (e.g. premium &gt; 0, claim ≤ sum assured)</li>
+                    <li>A scorecard with a pass rate per rule, rebuilt cleanly each time it runs</li>
                 </ul>
 
-                <h2>📊 Results & Metrics</h2>
+                <!-- Calculation framework -->
+                <h2>🧮 Calculation Framework</h2>
                 <ul>
-                    <li>Zero downtime during cutover</li>
-                    <li>Query performance improved by 35% on average</li>
-                    <li>TCO reduced by 30% over 3 years</li>
-                    <li>Automated backups and patching implemented</li>
+                    <li>Core insurance metrics defined once as documented, version-controlled SQL views</li>
+                    <li>Loss Ratio, Lapse Rate, Persistency, Annualised Premium Income, and claims frequency</li>
+                    <li>Power BI reads these views directly, so the calculation logic lives in one place instead of being repeated in DAX</li>
+                    <li>Every formula documented in a change-controlled specification alongside the code</li>
                 </ul>
 
-                <div class="architecture-section">
-                    <h2>📐 Architecture Diagram</h2>
-                    <p>Click diagram to view in full size</p>
-                    <img src="../assets/img/arch-diagrams/arch-placeholder.svg" 
-                         alt="Architecture Diagram" 
-                         class="architecture-diagram"
-                         loading="lazy">
-                </div>
+                <!-- Results -->
+                <h2>📈 Results</h2>
+                <ul>
+                    <li>~5,000 policies and ~140,000 premium transactions modelled with defects injected on purpose</li>
+                    <li>Data-quality scorecard surfaces every seeded defect with a full audit trail</li>
+                    <li>Realistic management KPIs: overall loss ratio around 60%, lapse rate around 18%</li>
+                    <li>Three-page Power BI report: Executive Summary, Risk &amp; Profitability, Data Quality Scorecard</li>
+                </ul>
+
             </div>
 
+            <!-- Sidebar -->
             <aside class="sidebar">
+
                 <div class="sidebar-card">
                     <h3>🛠️ Technologies Used</h3>
                     <div class="tech-list">
-                        <div class="tech-item"><div class="tech-icon">SQL</div><span>SQL MI</span></div>
-                        <div class="tech-item"><div class="tech-icon">DM</div><span>Azure DMS</span></div>
-                        <div class="tech-item"><div class="tech-icon">PS</div><span>PowerShell</span></div>
-                        <div class="tech-item"><div class="tech-icon">ER</div><span>ExpressRoute</span></div>
-                        <div class="tech-item"><div class="tech-icon">TF</div><span>Terraform</span></div>
+                        <div class="tech-item"><div class="tech-icon">SQL</div><span>SQL Server 2022 / Azure SQL</span></div>
+                        <div class="tech-item"><div class="tech-icon">TSQL</div><span>T-SQL (views, validation)</span></div>
+                        <div class="tech-item"><div class="tech-icon">BI</div><span>Power BI</span></div>
+                        <div class="tech-item"><div class="tech-icon">DQ</div><span>Data Quality &amp; Governance</span></div>
+                        <div class="tech-item"><div class="tech-icon">Az</div><span>Git / Azure DevOps</span></div>
                     </div>
                 </div>
 
                 <div class="sidebar-card">
                     <h3>🔗 Links</h3>
                     <div class="action-buttons">
-                        <a href="https://github.com/yourusername/database-migration" class="btn btn-primary" target="_blank" rel="noopener">💻 View Code on GitHub</a>
-                        <a href="https://example.com" class="btn btn-outline" target="_blank" rel="noopener">🔗 Live Demo</a>
-                        <a href="../assets/docs/project4-writeup.pdf" class="btn btn-secondary" download>📄 Download Write-up (PDF)</a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYjQ1Y2Y4NjYtMDkzYy00YWMyLWEwNWMtNWE4MmMyZGIzZWQ0IiwidCI6ImVhMWE5MDliLTY2MDAtNGEyNS04MmE1LTBjNmVkN2QwNTEzYiIsImMiOjl9" class="btn btn-primary" target="_blank" rel="noopener">
+                            🚀 Live Power BI Dashboard
+                        </a>
+                        <a href="https://github.com/Hugo-du-Preez/life-insurance-dq-framework" class="btn btn-outline" target="_blank" rel="noopener">
+                            💻 View on GitHub
+                        </a>
                     </div>
                 </div>
 
                 <div class="sidebar-card">
-                    <h3>📚 Related Modules</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">This project applied concepts from:</p>
+                    <h3>📚 Applied Competencies</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        This project demonstrated expertise in:
+                    </p>
                     <ul style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
-                        <li>Database Management</li>
-                        <li>Network Security</li>
-                        <li>Cloud Computing 361</li>
+                        <li>Data quality controls &amp; validation</li>
+                        <li>Data governance &amp; documentation</li>
+                        <li>SQL development &amp; calculation design</li>
+                        <li>Business intelligence &amp; reporting</li>
                     </ul>
                 </div>
+
             </aside>
         </div>
     </div>
@@ -138,14 +158,42 @@
         <a href="../index.html#projects" class="back-link bottom-back-link">← Back to Projects</a>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-brand">Hugo du Preez</div>
-        <p>Cloud Solutions Architect • Belgium Campus Graduate • Azure & AWS Certified</p>
+        <p>Data Analyst &amp; Developer • Belgium Campus Graduate • AZ-900 Certified</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
-            © <span class="current-year">2024</span> Built with HTML/CSS • Hosted on Azure Static Web Apps
+            © <span class="current-year">2026</span> Available for opportunities July 2026
         </p>
     </footer>
 
+    <!-- AI Chatbot Widget -->
+    <div id="chat-widget">
+        <div class="chat-header">
+            <span class="chat-header-title">
+                <img src="https://res.cloudinary.com/dxrak5fdv/image/upload/v1776846342/20260422_102305_0002-removebg-preview_hepydx.png" alt="AI" class="ai-icon">
+                <span>Ask Hugo's AI</span>
+            </span>
+            <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">×</button>
+        </div>
+
+        <div id="chat-messages">
+            <div class="chat-bot-msg chat-intro">
+                Hi! I'm Hugo's AI assistant. Ask me about his skills, projects, education, or availability!
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input id="chat-input" type="text" placeholder="Ask me anything..." maxlength="500" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button id="chat-send-btn" onclick="sendMessage()">Send</button>
+        </div>
+
+        <div id="chat-rate-warning">⚠️ Rate limit: Please wait before sending another message</div>
+    </div>
+
+    <button id="chat-toggle" onclick="toggleChat()" aria-label="Open chat">💬</button>
+
     <script src="../assets/js/main.js"></script>
+
 </body>
 </html>
