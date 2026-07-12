@@ -23,7 +23,7 @@
     <nav>
         <div class="nav-brand">
             <span class="nav-name">Hugo du Preez</span>
-            <span class="nav-title">Data Analyst &amp; Developer</span>
+            <span class="nav-title">Data &amp; Business Analyst • Developer</span>
         </div>
 
         <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -54,7 +54,7 @@
             <p class="subtitle">A SQL Server framework for data quality, documented calculations, and Power BI reporting</p>
             <div class="project-meta">
                 <div class="meta-item"><strong>Project:</strong> 01 / 04</div>
-                <div class="meta-item"><strong>Focus:</strong> Data Analysis &amp; BI</div>
+                <div class="meta-item"><strong>Focus:</strong> Data Analysis, BI &amp; Process Mapping</div>
                 <div class="meta-item"><strong>Status:</strong> Completed</div>
             </div>
         </div>
@@ -153,6 +153,27 @@ DIVIDE(
                     <li>Three-page Power BI report: Executive Summary, Risk &amp; Profitability, Data Quality Scorecard</li>
                 </ul>
 
+                <!-- Process analysis -->
+                <h2>🗺️ Process Analysis (As-Is → To-Be)</h2>
+                <p>Beyond the data-quality engine, I mapped the life-insurance claims process to show <em>where</em> the defects originate, then redesigned it so the checks run at the point of capture instead of downstream. This is the business-analysis layer: current-state mapping, root-cause findings, and an improved future-state design.</p>
+
+                <p class="code-caption"><strong>As-Is</strong>: validation is manual and happens after records already exist, so bad data reaches the reports before it is caught:</p>
+                <img src="../assets/img/claims-process-as-is.png" alt="As-Is life-insurance claims process, BPMN swimlane diagram" loading="lazy" style="width:100%; border-radius:12px; margin:0 0 1.6rem; border:1px solid var(--border, #d3d1c7);">
+                <ul>
+                    <li>Policy validation is manual, which is the root cause of the data-quality failures</li>
+                    <li>Critical defects (duplicate policy IDs, broken customer links, over-claims) reach the management KPIs before they are detected</li>
+                    <li>Loss ratio, lapse rate, and persistency are built on unvalidated data</li>
+                </ul>
+
+                <p class="code-caption"><strong>To-Be</strong>: the 10 checks move to the point of capture as automated preventive controls, so errors are stopped at source:</p>
+                <img src="../assets/img/claims-process-to-be.png" alt="To-Be life-insurance claims process, BPMN swimlane diagram" loading="lazy" style="width:100%; border-radius:12px; margin:0 0 1.6rem; border:1px solid var(--border, #d3d1c7);">
+                <ul>
+                    <li>DQ01–DQ08 run automatically at capture; failing records are returned before they enter the book</li>
+                    <li>DQ09 (claim ≤ sum assured) is enforced at assessment, and DQ10 reconciles premium at payout</li>
+                    <li>The scorecard becomes ongoing monitoring rather than the first place errors are found</li>
+                </ul>
+                <p>Techniques applied: BPMN process mapping, requirements &amp; gap analysis, and the DAMA data-quality dimensions. Full write-up in the <a href="https://github.com/Hugo-du-Preez/life-insurance-dq-framework/blob/main/docs/process_analysis.md" target="_blank" rel="noopener">process analysis document</a>.</p>
+
             </div>
 
             <!-- Sidebar -->
@@ -166,6 +187,7 @@ DIVIDE(
                         <div class="tech-item"><div class="tech-icon">BI</div><span>Power BI</span></div>
                         <div class="tech-item"><div class="tech-icon">DQ</div><span>Data Quality &amp; Governance</span></div>
                         <div class="tech-item"><div class="tech-icon">Az</div><span>Git / Azure DevOps</span></div>
+                        <div class="tech-item"><div class="tech-icon">BA</div><span>BPMN / draw.io (process mapping)</span></div>
                     </div>
                 </div>
 
@@ -177,6 +199,9 @@ DIVIDE(
                         </a>
                         <a href="https://github.com/Hugo-du-Preez/life-insurance-dq-framework" class="btn btn-outline" target="_blank" rel="noopener">
                             💻 View on GitHub
+                        </a>
+                        <a href="https://github.com/Hugo-du-Preez/life-insurance-dq-framework/blob/main/docs/process_analysis.md" class="btn btn-outline" target="_blank" rel="noopener">
+                            🗺️ Process Analysis (As-Is / To-Be)
                         </a>
                     </div>
                 </div>
@@ -191,6 +216,8 @@ DIVIDE(
                         <li>Data governance &amp; documentation</li>
                         <li>SQL development &amp; calculation design</li>
                         <li>Business intelligence &amp; reporting</li>
+                        <li>Business process mapping (BPMN)</li>
+                        <li>Requirements &amp; gap analysis</li>
                     </ul>
                 </div>
 
@@ -206,7 +233,7 @@ DIVIDE(
     <!-- Footer -->
     <footer>
         <div class="footer-brand">Hugo du Preez</div>
-        <p>Data Analyst &amp; Developer • Belgium Campus Graduate • AZ-900 Certified</p>
+        <p>Data &amp; Business Analyst • Developer • Belgium Campus Graduate • AZ-900 Certified</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
             © <span class="current-year">2026</span> Available for opportunities
         </p>

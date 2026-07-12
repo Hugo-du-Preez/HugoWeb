@@ -72,7 +72,7 @@ backLinks.forEach(link => {
 // Project hover effects are handled in CSS to avoid conflicts
 
 // ===== CERTIFICATION BADGE ANIMATION =====
-// (cert animations removed — certifications now have their own section)
+// (cert animations removed; certifications now have their own section)
 
 // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
 const observerOptions = {

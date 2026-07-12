@@ -3,17 +3,17 @@ const https = require('https');
 
 // ===================== KNOWLEDGE BASE =====================
 const KNOWLEDGE_BASE = {
-  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 16 distinctions. Microsoft AZ-900 certified. Focus: data analytics and business intelligence, with a background in backend development and cloud.`,
+  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 16 distinctions. Microsoft AZ-900 certified. Focus: data analytics, business intelligence, and business process analysis, with a background in backend development and cloud.`,
 
   contact: `Email: hugo777dupreez@gmail.com | Phone: +27 65 843 9361 | LinkedIn: linkedin.com/in/hugo-du-preez | GitHub: github.com/Hugo-du-Preez | Portfolio: hugodupreez.com`,
 
-  skills: `Data & BI: Power BI, SQL Server, T-SQL, Excel, Data Quality, Data Governance | Backend: C#, .NET, Python, REST APIs, OOP | Databases: SQL Server, T-SQL, MongoDB, SQLite | Cloud & DevOps: Azure (AZ-900), Azure DevOps, CI/CD | Web: Flask, HTML, CSS, Bootstrap, JavaScript`,
+  skills: `Data & BI: Power BI, SQL Server, T-SQL, Excel, Data Quality, Data Governance | Business Analysis: BPMN process mapping, requirements analysis, gap analysis, stakeholder management, draw.io/Lucidchart | Backend: C#, .NET, Python, REST APIs, OOP | Databases: SQL Server, T-SQL, MongoDB, SQLite | Cloud & DevOps: Azure (AZ-900), Azure DevOps, CI/CD | Web: Flask, HTML, CSS, Bootstrap, JavaScript`,
 
   projects: [
     {
       name: "Life Insurance Data Quality & Reporting Framework",
-      tech: "SQL Server, T-SQL, Power BI",
-      desc: "Automated data-quality checks, documented calculation views, and a Power BI dashboard for a life-insurance book."
+      tech: "SQL Server, T-SQL, Power BI, BPMN",
+      desc: "Automated data-quality checks, documented calculation views, and a Power BI dashboard for a life-insurance book. Also includes an As-Is/To-Be process analysis of the claims workflow (BPMN), showing where data-quality issues arise and how to prevent them at capture."
     },
     {
       name: "Portfolio Analytics Dashboard",
@@ -46,8 +46,8 @@ Repositories:
 `,
 
   cv: `
-Career Focus: Data analytics, business intelligence, data quality
-Seeking: Data analyst and BI roles (also open to software development and database roles)
+Career Focus: Data analytics, business intelligence, data quality, and business process analysis
+Seeking: Data analyst, BI, and business/process analyst roles (also open to software development and database roles)
 Tools: Power BI, Excel, GitHub, Azure DevOps, Visual Studio, Azure Data Studio
 Languages: English, Afrikaans
 Driver’s License: Code B
@@ -55,8 +55,8 @@ Driver’s License: Code B
 
   site: `
 Website Overview:
-- Portfolio focused on data analytics and business intelligence
-- Highlights data quality, Power BI reporting, and real-world projects
+- Portfolio focused on data analytics, business intelligence, and business process analysis
+- Highlights data quality, Power BI reporting, BPMN process mapping, and real-world projects
 - Also shows software development and cloud experience
 `,
 
@@ -168,11 +168,13 @@ exports.handler = async (event) => {
 You are Hugo du Preez's friendly AI assistant on his portfolio website. You help visitors (often recruiters) get to know Hugo.
 
 HOW TO REPLY:
-- Be warm, friendly and conversational, like a helpful person who knows Hugo well.
-- Keep it easy to read: a short friendly sentence, then a few bullet points when you're listing things. A sentence or two is fine — don't sound clipped or robotic.
-- Only use the information provided below. Don't guess or make anything up.
-- If something isn't covered, say so kindly and point them to Hugo: "I'm not sure about that one, but Hugo would be happy to chat. You can reach him at hugo777dupreez@gmail.com."
-- The occasional emoji is fine to keep things warm, but don't overdo it.
+- Keep answers short and high-quality. Aim for 2 to 4 short sentences, or up to 4 brief bullet points when listing things. Never write long paragraphs.
+- Answer the question directly first, then stop. Do not pad, repeat, or add filler.
+- Be warm and professional, like a helpful person who knows Hugo well.
+- Never use em dashes. Use commas, colons, or full stops instead.
+- Only use the information provided below. Do not guess or make anything up.
+- If something is not covered, say so briefly and point them to Hugo: "I am not sure about that one, but Hugo would be happy to chat. You can reach him at hugo777dupreez@gmail.com."
+- An occasional emoji is fine to keep things warm, but do not overdo it.
 
 FIRST MESSAGE:
 - If it's the first message, greet them warmly first (e.g. "Hi! Great to meet you 👋"), then answer. Only greet once per conversation.
@@ -216,7 +218,7 @@ AVAILABILITY: ${KNOWLEDGE_BASE.availability}
           model: 'llama-3.1-8b-instant',
           messages,
           temperature: 0.4,
-          max_tokens: 300
+          max_tokens: 200
         })
       }
     );
