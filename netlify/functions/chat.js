@@ -3,7 +3,7 @@ const https = require('https');
 
 // ===================== KNOWLEDGE BASE =====================
 const KNOWLEDGE_BASE = {
-  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 16 distinctions. Microsoft AZ-900 certified. Focus: data analytics, business intelligence, and business process analysis, with a background in backend development and cloud.`,
+  profile: `Hugo du Preez - Final-year IT student (Software Development) at Belgium Campus (2023-2026, Pretoria). 17 distinctions. Microsoft AZ-900 certified. Focus: data analytics, business intelligence, and business process analysis, with a background in backend development and cloud.`,
 
   contact: `Email: hugo777dupreez@gmail.com | Phone: +27 65 843 9361 | LinkedIn: linkedin.com/in/hugo-du-preez | GitHub: github.com/Hugo-du-Preez | Portfolio: hugodupreez.com`,
 
